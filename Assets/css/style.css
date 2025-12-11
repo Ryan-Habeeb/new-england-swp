@@ -322,6 +322,7 @@ header {
   color:#000;
   font-weight:700;
   margin:0 0 16px;
+  text-align: center;
 }
 .contact-card form{
   display:flex;
@@ -335,6 +336,7 @@ header {
   border-radius:8px;
   font-family:'Amethysta';
   color:var(--davy);
+  width: 391px;
 }
 .contact-card input::placeholder,
 .contact-card textarea::placeholder{
@@ -372,3 +374,5 @@ footer{
   .preset-buttons button{ flex:1; }
   .custom-donation input[type="range"]{ width:220px; }
 }
+
+
