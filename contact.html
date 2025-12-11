@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>New England Stone Wall Preservation — Contact</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <h1 class="logo">
+      <span class="logo-top">New England</span>
+      <span class="logo-main">Stone Wall</span>
+      <span class="logo-bottom">Preservation</span>
+    </h1>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="dropdown">
+          <a href="#" aria-haspopup="true" aria-expanded="false">Preservation ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="progress.html">Progress</a></li>
+            <li><a href="donate.html">Donate</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contact-main" role="main" aria-labelledby="contact-title">
+    <div class="contact-card">
+      <h2 id="contact-title">Contact NESWP</h2>
+
+      <form id="contact-form" novalidate>
+        <label>
+          <input name="name" placeholder="Name" aria-label="Name" />
+        </label>
+
+        <label>
+          <input name="email" type="email" placeholder="Email" aria-label="Email" />
+        </label>
+
+        <label>
+          <textarea name="message" rows="6" placeholder="Message..." aria-label="Message"></textarea>
+        </label>
+
+        <button class="send contact-send" type="submit">Send</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 NESWP. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Embedded JS for contact form behavior -->
+  <script>
+    (function () {
+      const form = document.getElementById('contact-form');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        // simple demo response (in a real site we'd send form data)
+        alert('Thanks — your message was received (demo).');
+        form.reset();
+      });
+    }());
+  </script>
+</body>
+</html>
