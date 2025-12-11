@@ -1,1 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>New England Stone Wall Preservation — Donate</title>
 
+  <!-- Normalize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <h1 class="logo">
+      <span class="logo-top">New England</span>
+      <span class="logo-main">Stone Wall</span>
+      <span class="logo-bottom">Preservation</span>
+    </h1>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="dropdown">
+          <a href="#" aria-haspopup="true" aria-expanded="false" class="active">Preservation ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="progress.html">Progress</a></li>
+            <li><a href="donate.html" class="active">Donate</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="donate-main" role="main" aria-labelledby="donate-title">
+    <div class="donation-card">
+      <h2 id="donate-title">NESWP Donations</h2>
+
+      <div class="preset-buttons" role="group" aria-label="Preset donation amounts">
+        <button type="button" data-amount="5">$5</button>
+        <button type="button" data-amount="10">$10</button>
+        <button type="button" data-amount="50">$50</button>
+      </div>
+
+      <label class="custom-donation">
+        <span class="dollar-sign">$</span>
+        <input id="donation-range" type="range" min="1" max="1000" value="25">
+        <span class="usd-label">USD</span>
+      </label>
+
+      <button id="donate-send" class="send" type="button">Donate</button>
+
+      <p class="donation-display">Selected donation: <strong id="selected-amount">$25</strong></p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 NESWP. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Embedded donation JavaScript -->
+  <script>
+    (function () {
+      const buttons = document.querySelectorAll('.preset-buttons button');
+      const range = document.getElementById('donation-range');
+      const selected = document.getElementById('selected-amount');
+      const donateBtn = document.getElementById('donate-send');
+
+      function updateDisplay(amount) {
+        selected.textContent = '$' + amount;
+      }
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const amt = Number(btn.getAttribute('data-amount'));
+          range.value = amt;
+          buttons.forEach(b => b.classList.remove('chosen'));
+          btn.classList.add('chosen');
+          updateDisplay(amt);
+        });
+      });
+
+      range.addEventListener('input', () => {
+        buttons.forEach(b => b.classList.remove('chosen'));
+        updateDisplay(range.value);
+      });
+
+      donateBtn.addEventListener('click', () => {
+        alert('Thank you — you chose to donate $' + range.value + ' (demo).');
+      });
+
+      updateDisplay(range.value);
+    })();
+  </script>
+
+</body>
+</html>
